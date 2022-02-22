@@ -1,0 +1,14 @@
+ASSETS:
+ID					Name		Type
+b89c12f0-20ad-11ec-9161-932316a31a3e	greenHouse	greenHouse
+
+DEVICES:	
+ID					Name		Access Token		Profile	
+143342f0-266c-11ec-a257-5564d1017c12	pump		0WiWPDvqX8xgwSXhQteo	default
+0ef3e0b0-266c-11ec-a257-5564d1017c12	lamp		L1VGfoNMmjdJshBRIohN	default
+059d4880-266c-11ec-a257-5564d1017c12	motor		bDatZ4NU9noh83vtCMnX	default
+484b9420-264e-11ec-a257-5564d1017c12	fan		EMacgNpnAQQR0aEgOiXQ	default
+727da3f0-b187-11eb-8337-d185831eb35d	moisture sensor	0pPmsEwx0yq9DLFkr8Es	default
+205d9f80-b187-11eb-8337-d185831eb35d	dht11 sensor	hhf9x5hWi5yDnGMAyCTx	default
+0a39bef0-b187-11eb-8337-d185831eb35d	light sensor	zwpp5zbg0Ye7JO6yjX9K	default
+f4025660-b186-11eb-8337-d185831eb35d	water sensor	VvRYDgvzHshO72vcpp19	default

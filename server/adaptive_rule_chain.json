@@ -1,0 +1,846 @@
+{
+  "ruleChain": {
+    "additionalInfo": {
+      "description": ""
+    },
+    "name": "adaptive rule chain",
+    "type": "CORE",
+    "firstRuleNodeId": null,
+    "root": false,
+    "debugMode": false,
+    "configuration": null
+  },
+  "metadata": {
+    "firstNodeIndex": 33,
+    "nodes": [
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1705,
+          "layoutY": 112
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "attribute fan off",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "var mType = 'POST_ATTRIBUTES_REQUEST';\nvar msgPayload = {\"fan\":\"off\"};\nmetadata.deviceName = \"dht11 sensor\";\nreturn {msg: msgPayload, metadata: metadata, msgType: mType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1705,
+          "layoutY": 256
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "attribute pump off",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "var mType = 'POST_ATTRIBUTES_REQUEST';\nvar msgPayload = {\"pump\":\"off\"};\nmetadata.deviceName = \"moisture sensor\";\nreturn {msg: msgPayload, metadata: metadata, msgType: mType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1695,
+          "layoutY": 368
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "attribute lamp on",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "var mType = 'POST_ATTRIBUTES_REQUEST';\nvar msgPayload = {\"lamp\":\"on\"};\nmetadata.deviceName = \"light sensor\";\nreturn {msg: msgPayload, metadata: metadata, msgType: mType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1696,
+          "layoutY": 440
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "attribute lamp off",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "var mType = 'POST_ATTRIBUTES_REQUEST';\nvar msgPayload = {\"lamp\":\"off\"};\nmetadata.deviceName = \"light sensor\";\nreturn {msg: msgPayload, metadata: metadata, msgType: mType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1696,
+          "layoutY": 512
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "attribute motor on",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "var mType = 'POST_ATTRIBUTES_REQUEST';\nvar msgPayload = {\"motor\":\"on\"};\nmetadata.deviceName = \"water sensor\";\nreturn {msg: msgPayload, metadata: metadata, msgType: mType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1695,
+          "layoutY": 587
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "attribute motor off",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "var mType = 'POST_ATTRIBUTES_REQUEST';\nvar msgPayload = {\"motor\":\"off\"};\nmetadata.deviceName = \"water sensor\";\nreturn {msg: msgPayload, metadata: metadata, msgType: mType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1702,
+          "layoutY": 180
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "attribute pump on",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "var mType = 'POST_ATTRIBUTES_REQUEST';\nvar msgPayload = {\"pump\":\"on\"};\nmetadata.deviceName = \"moisture sensor\";\nreturn {msg: msgPayload, metadata: metadata, msgType: mType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1460,
+          "layoutY": 441
+        },
+        "type": "org.thingsboard.rule.engine.rpc.TbSendRPCRequestNode",
+        "name": "rpc to device",
+        "debugMode": false,
+        "configuration": {
+          "timeoutInSeconds": 60
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1461,
+          "layoutY": 514
+        },
+        "type": "org.thingsboard.rule.engine.rpc.TbSendRPCRequestNode",
+        "name": "rpc to device",
+        "debugMode": false,
+        "configuration": {
+          "timeoutInSeconds": 60
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1460,
+          "layoutY": 585
+        },
+        "type": "org.thingsboard.rule.engine.rpc.TbSendRPCRequestNode",
+        "name": "rpc to device",
+        "debugMode": false,
+        "configuration": {
+          "timeoutInSeconds": 60
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1129,
+          "layoutY": 371
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "start light",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "// return {msg: msg, metadata: metadata, msgType: msgType};\n\nmsg = {\n  \"method\": \"startLight\",\n  \"params\": {}\n};\n\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1127,
+          "layoutY": 443
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "stop light",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "// return {msg: msg, metadata: metadata, msgType: msgType};\n\nmsg = {\n  \"method\": \"stopLight\",\n  \"params\": {}\n};\n\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1128,
+          "layoutY": 519
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "start motor",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "// return {msg: msg, metadata: metadata, msgType: msgType};\n\nmsg = {\n  \"method\": \"startMotor\",\n  \"params\": {}\n};\n\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1128,
+          "layoutY": 598
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "stop motor",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "// return {msg: msg, metadata: metadata, msgType: msgType};\n\nmsg = {\n  \"method\": \"stopMotor\",\n  \"params\": {}\n};\n\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1127,
+          "layoutY": 184
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "start pump",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "// return {msg: msg, metadata: metadata, msgType: msgType};\n\nmsg = {\n  \"method\": \"startPump\",\n  \"params\": {}\n};\n\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1127,
+          "layoutY": 255
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "stop pump",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "// return {msg: msg, metadata: metadata, msgType: msgType};\n\nmsg = {\n  \"method\": \"stopPump\",\n  \"params\": {}\n};\n\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1122,
+          "layoutY": 33
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "start fan",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "// return {msg: msg, metadata: metadata, msgType: msgType};\n\nmsg = {\n  \"method\": \"StartFan\",\n  \"params\": {}\n};\n\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1124,
+          "layoutY": 107
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "stop fan",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "// return {msg: msg, metadata: metadata, msgType: msgType};\n\nmsg = {\n  \"method\": \"stopFan\",\n  \"params\": {}\n};\n\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 809,
+          "layoutY": 215
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsSwitchNode",
+        "name": "operation switch",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": " var mx = parseFloat(metadata.thrishold)+1;\nvar mn = parseFloat(metadata.thrishold)-1;\nif(metadata.mode=='auto'){\n    if( msg.moisture<=mn) {return ['start',];}\n      \n      \n      \n      \n    else if( msg.moisture>=mx) {return ['stop',];}\n  \n\n    \n    else  return ['nothing'];\n} \n    return ['manual',];\n"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 2043,
+          "layoutY": 294
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbChangeOriginatorNode",
+        "name": "change",
+        "debugMode": false,
+        "configuration": {
+          "originatorSource": "RELATED",
+          "relationsQuery": {
+            "fetchLastLevelOnly": false,
+            "direction": "TO",
+            "maxLevel": 1,
+            "filters": [
+              {
+                "relationType": "Contains",
+                "entityTypes": [
+                  "ASSET"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 2316,
+          "layoutY": 296
+        },
+        "type": "org.thingsboard.rule.engine.telemetry.TbMsgAttributesNode",
+        "name": "fan attribute",
+        "debugMode": false,
+        "configuration": {
+          "scope": "SERVER_SCOPE",
+          "notifyDevice": false
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1703,
+          "layoutY": 34
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "attribute fan on",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "var mType = 'POST_ATTRIBUTES_REQUEST';\nvar msgPayload = {\"fan\":\"on\"};\nmetadata.deviceName = \"dht11 sensor\";\nreturn {msg: msgPayload, metadata: metadata, msgType: mType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 3222,
+          "layoutY": 314
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsSwitchNode",
+        "name": "rpc reply",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "// if (msg.value == \"changed\") {\n    return ['true']\n// }\n// return ['false']"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 808,
+          "layoutY": 410
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsSwitchNode",
+        "name": "operation switch",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": " var mx = parseFloat(metadata.thrishold)+5;\nvar mn = parseFloat(metadata.thrishold)-5;\nif(metadata.mode=='auto'){\n    if( msg.light<=mn) {return ['stop',];}\n      \n      \n      \n      \n    else if( msg.light>=mx) {return ['start',];}\n  \n\n    \n    else  return ['nothing'];\n} \n    return ['manual',];\n"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 806,
+          "layoutY": 556
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsSwitchNode",
+        "name": "operation switch",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": " var mx = parseFloat(metadata.thrishold)+49;\nvar mn = parseFloat(metadata.thrishold)-1;\nif(metadata.mode=='auto'){\n    if( msg.water<=mn) {return ['start',];}\n      \n      \n      \n      \n    else if( msg.water>=mx) {return ['stop',];}\n  \n\n    \n    else  return ['nothing'];\n} \n    return ['manual',];\n"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 809,
+          "layoutY": 59
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsSwitchNode",
+        "name": "operation switch",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": " var mx = parseFloat(metadata.thrishold)+5;\nvar mn = parseFloat(metadata.thrishold)-5;\nif(metadata.mode==='auto'){\n    if( msg.temperature<=mn) {return ['stop'];}\n      \n      \n      \n      \n    else if( msg.temperature>=mx) {return ['start'];}\n  \n\n    \n    else  return ['nothing'];\n } \n    return ['manual'];\n"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 529,
+          "layoutY": 217
+        },
+        "type": "org.thingsboard.rule.engine.metadata.TbGetRelatedAttributeNode",
+        "name": "fetchAtr",
+        "debugMode": false,
+        "configuration": {
+          "relationsQuery": {
+            "fetchLastLevelOnly": false,
+            "direction": "TO",
+            "maxLevel": 1,
+            "filters": [
+              {
+                "relationType": "Contains",
+                "entityTypes": [
+                  "ASSET"
+                ]
+              }
+            ]
+          },
+          "telemetry": false,
+          "attrMapping": {
+            "moisThrish": "thrishold",
+            "mode": "mode"
+          }
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 528,
+          "layoutY": 411
+        },
+        "type": "org.thingsboard.rule.engine.metadata.TbGetRelatedAttributeNode",
+        "name": "fetchAtr",
+        "debugMode": false,
+        "configuration": {
+          "relationsQuery": {
+            "fetchLastLevelOnly": false,
+            "direction": "TO",
+            "maxLevel": 1,
+            "filters": [
+              {
+                "relationType": "Contains",
+                "entityTypes": [
+                  "ASSET"
+                ]
+              }
+            ]
+          },
+          "telemetry": false,
+          "attrMapping": {
+            "lightThrish": "thrishold",
+            "mode": "mode"
+          }
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 529,
+          "layoutY": 557
+        },
+        "type": "org.thingsboard.rule.engine.metadata.TbGetRelatedAttributeNode",
+        "name": "fetchAtr",
+        "debugMode": false,
+        "configuration": {
+          "relationsQuery": {
+            "fetchLastLevelOnly": false,
+            "direction": "TO",
+            "maxLevel": 1,
+            "filters": [
+              {
+                "relationType": "Contains",
+                "entityTypes": [
+                  "ASSET"
+                ]
+              }
+            ]
+          },
+          "telemetry": false,
+          "attrMapping": {
+            "waterThrish": "thrishold",
+            "mode": "mode"
+          }
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 528,
+          "layoutY": 60
+        },
+        "type": "org.thingsboard.rule.engine.metadata.TbGetRelatedAttributeNode",
+        "name": "fetchAtr",
+        "debugMode": false,
+        "configuration": {
+          "relationsQuery": {
+            "fetchLastLevelOnly": false,
+            "direction": "TO",
+            "maxLevel": 1,
+            "filters": [
+              {
+                "relationType": "Contains",
+                "entityTypes": [
+                  "ASSET"
+                ]
+              }
+            ]
+          },
+          "telemetry": false,
+          "attrMapping": {
+            "tempThrish": "thrishold",
+            "mode": "mode"
+          }
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 3216,
+          "layoutY": 90
+        },
+        "type": "org.thingsboard.rule.engine.action.TbLogNode",
+        "name": "logme",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "return '\\n'+'\\n'+'\\n\\n\\n\\n\\n\\n\\n'+'Incoming message:\\n' + JSON.stringify(msg) + '\\nIncoming metadata:\\n' + JSON.stringify(metadata)+'\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n';"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 3460,
+          "layoutY": 278
+        },
+        "type": "org.thingsboard.rule.engine.action.TbLogNode",
+        "name": "logme",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "return '\\n'+'\\n'+'\\n\\n\\n\\n\\n\\n\\n'+'Incoming message:\\n' + JSON.stringify(msg) + '\\nIncoming metadata:\\n' + JSON.stringify(metadata)+'\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n';"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 306,
+          "layoutY": 627
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsFilterNode",
+        "name": "dht11 filter",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "if(metadata.adaptive){\n    if(msg.temperature<meatadata.thrishold-10)\n    return ['start']\n    if(msg.temperature<meatadata.thrishold+10)\n    return ['stop']\n    \n}\n"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 236,
+          "layoutY": 275
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsSwitchNode",
+        "name": "device switch",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "// function nextRelation(metadata, msg) {\n//     return ['one','nine'];\n// }\n\n// if(msgType === 'POST_TELEMETRY_REQUEST') {\n//     return nextRelation(metadata, msg);\n// }\n\nif(metadata.deviceName===\"dht11 sensor\")\nreturn ['dht11',];\nif(metadata.deviceName===\"moisture sensor\")\nreturn ['moisture',];\nif(metadata.deviceName===\"light sensor\")\nreturn ['light',];\nif(metadata.deviceName===\"water sensor\")\nreturn ['water',];\nreturn \"false\";"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 3221,
+          "layoutY": 201
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsFilterNode",
+        "name": "start",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "var mx = parseFloat(metadata.thrishold)+10;\nif(metadata.mode==='auto'){\n    if( msg.temperature>=mx) {return true;}\n      \n}"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 3221,
+          "layoutY": 255
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsFilterNode",
+        "name": "stop",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "var mn = metadata.thrishold-10;\nif(metadata.mode==='auto'){\n    if( msg.temperature<=mn) {return true;}\n      \n}"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1466,
+          "layoutY": 110
+        },
+        "type": "org.thingsboard.rule.engine.rpc.TbSendRPCRequestNode",
+        "name": "rpc to device",
+        "debugMode": false,
+        "configuration": {
+          "timeoutInSeconds": 60
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1467,
+          "layoutY": 33
+        },
+        "type": "org.thingsboard.rule.engine.rpc.TbSendRPCRequestNode",
+        "name": "rpc to device",
+        "debugMode": false,
+        "configuration": {
+          "timeoutInSeconds": 60
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1467,
+          "layoutY": 185
+        },
+        "type": "org.thingsboard.rule.engine.rpc.TbSendRPCRequestNode",
+        "name": "rpc to device",
+        "debugMode": false,
+        "configuration": {
+          "timeoutInSeconds": 60
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1466,
+          "layoutY": 255
+        },
+        "type": "org.thingsboard.rule.engine.rpc.TbSendRPCRequestNode",
+        "name": "rpc to device",
+        "debugMode": false,
+        "configuration": {
+          "timeoutInSeconds": 60
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1462,
+          "layoutY": 368
+        },
+        "type": "org.thingsboard.rule.engine.rpc.TbSendRPCRequestNode",
+        "name": "rpc to device",
+        "debugMode": false,
+        "configuration": {
+          "timeoutInSeconds": 60
+        }
+      }
+    ],
+    "connections": [
+      {
+        "fromIndex": 0,
+        "toIndex": 19,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 1,
+        "toIndex": 19,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 2,
+        "toIndex": 19,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 3,
+        "toIndex": 19,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 4,
+        "toIndex": 19,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 5,
+        "toIndex": 19,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 6,
+        "toIndex": 19,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 7,
+        "toIndex": 3,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 8,
+        "toIndex": 4,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 9,
+        "toIndex": 5,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 10,
+        "toIndex": 40,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 11,
+        "toIndex": 7,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 12,
+        "toIndex": 8,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 13,
+        "toIndex": 9,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 14,
+        "toIndex": 38,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 15,
+        "toIndex": 39,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 16,
+        "toIndex": 37,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 17,
+        "toIndex": 36,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 18,
+        "toIndex": 14,
+        "type": "start"
+      },
+      {
+        "fromIndex": 18,
+        "toIndex": 15,
+        "type": "stop"
+      },
+      {
+        "fromIndex": 19,
+        "toIndex": 20,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 21,
+        "toIndex": 19,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 22,
+        "toIndex": 31,
+        "type": "true"
+      },
+      {
+        "fromIndex": 23,
+        "toIndex": 10,
+        "type": "start"
+      },
+      {
+        "fromIndex": 23,
+        "toIndex": 11,
+        "type": "stop"
+      },
+      {
+        "fromIndex": 24,
+        "toIndex": 13,
+        "type": "stop"
+      },
+      {
+        "fromIndex": 24,
+        "toIndex": 12,
+        "type": "start"
+      },
+      {
+        "fromIndex": 25,
+        "toIndex": 16,
+        "type": "start"
+      },
+      {
+        "fromIndex": 25,
+        "toIndex": 17,
+        "type": "stop"
+      },
+      {
+        "fromIndex": 26,
+        "toIndex": 18,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 27,
+        "toIndex": 23,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 28,
+        "toIndex": 24,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 29,
+        "toIndex": 25,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 33,
+        "toIndex": 29,
+        "type": "dht11"
+      },
+      {
+        "fromIndex": 33,
+        "toIndex": 26,
+        "type": "moisture"
+      },
+      {
+        "fromIndex": 33,
+        "toIndex": 27,
+        "type": "light"
+      },
+      {
+        "fromIndex": 33,
+        "toIndex": 28,
+        "type": "water"
+      },
+      {
+        "fromIndex": 36,
+        "toIndex": 0,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 37,
+        "toIndex": 21,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 38,
+        "toIndex": 6,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 39,
+        "toIndex": 1,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 40,
+        "toIndex": 2,
+        "type": "Success"
+      }
+    ],
+    "ruleChainConnections": null
+  }
+}

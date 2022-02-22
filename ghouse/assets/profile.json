@@ -1,0 +1,46 @@
+[{
+    "id":1,
+    "name":"Gumbo",
+    "tempLow":21,
+    "tempHight":31,
+    "humidityLow":30,
+    "humidityHight":50,
+    "lightTimeLow":8,
+    "lightTimeHight":14,
+    "moistureLow":4,
+    "moistureHight":5
+},
+{
+    "id":2,
+    "name":"Tomato",
+    "tempLow":25,
+    "tempHight":30,
+    "humidityLow":60,
+    "humidityHight":65,
+    "lightTimeLow":7,
+    "lightTimeHight":17,
+    "moistureLow":5,
+    "moistureHight":6
+},{
+    "id":3,
+    "name":"Eggplant",
+    "tempLow":21,
+    "tempHight":30,
+    "humidityLow":30,
+    "humidityHight":50,
+    "lightTimeLow":8,
+    "lightTimeHight":14,
+    "moistureLow":4,
+    "moistureHight":5
+},{
+    "id":4,
+    "name":"Watercress",
+    "tempLow":10,
+    "tempHight":22,
+    "humidityLow":50,
+    "humidityHight":70,
+    "lightTimeLow":8,
+    "lightTimeHight":14,
+    "moistureLow":5,
+    "moistureHight":6
+}]

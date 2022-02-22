@@ -1,0 +1,67 @@
+{
+    "subscriptionId":3,
+"errorCode":0,
+"errorMsg":null,
+"data":{
+    "light":[
+    [1618045488650,"78"]
+    ]},
+    "latestValues":{"light":1618045488650}
+}
+
+{
+    "subscriptionId":1,
+    "errorCode":0,
+    "errorMsg":null,
+    "data":{
+        "humidity":[
+            [1618835416638,"70"]
+            ],
+        "temperature":[
+            [1618835416638,"5"]
+            ]
+},
+    "latestValues":{"temperature":1618835416638,
+    "humidity":1618835416638}
+}
+
+
+{
+  "subscriptionId": 0,
+  "errorCode": 2,
+  "errorMsg": "Failed to parse websocket command!",
+  "data": null,
+  "latestValues": {}
+}
+
+
+=============================================================
+                                        control screen 
+                                        ==============
+                                        ==============
+
+
+POST attribute URL
+
+curl -v 'https://thingsboard.cloud/api/plugins/telemetry/ENTITY-TYPE/ENTITY-ID/SERVER_SCOPE' \
+-H 'x-authorization: Bearer $YOUR_JWT_TOKEN_HERE' \
+-H 'content-type: application/json' \
+--data-raw '{"newAttributeName":"newAttributeValue"}'
+ 
+
+ GET attribute URL 
+curl -v -X GET 'https://thingsboard.cloud/api/plugins/telemetry/ENTITY-TYPE/ENTITY-ID/values/attributes/SERVER_SCOPE' \
+  -H 'x-authorization: Bearer $YOUR_JWT_TOKEN_HERE' \
+  -H 'content-type: application/json' 
+
+
+fetch attribute respons format
+[
+    {
+        "lastUpdateTs": 1617633139380,
+        "key": "newAttributeName",
+        "value": "newAttributeValue"
+    }
+]
+
+=======================================================

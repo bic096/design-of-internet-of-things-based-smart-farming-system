@@ -1,0 +1,281 @@
+{
+  "ruleChain": {
+    "additionalInfo": {
+      "description": ""
+    },
+    "name": "RPC Manual rule chain",
+    "type": "CORE",
+    "firstRuleNodeId": null,
+    "root": false,
+    "debugMode": false,
+    "configuration": null
+  },
+  "metadata": {
+    "firstNodeIndex": 0,
+    "nodes": [
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 115,
+          "layoutY": 479
+        },
+        "type": "org.thingsboard.rule.engine.action.TbLogNode",
+        "name": "logme",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "return '\\n'+'\\n'+'\\n\\n\\n\\n\\n\\n\\n'+'Incoming message:\\n' + JSON.stringify(msg) + '\\nIncoming metadata:\\n' + JSON.stringify(metadata)+'\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n';"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 456,
+          "layoutY": 342
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsSwitchNode",
+        "name": "device switch",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "// function nextRelation(metadata, msg) {\n//     return ['one','nine'];\n// }\n\n// if(msgType === 'POST_TELEMETRY_REQUEST') {\n//     return nextRelation(metadata, msg);\n// }\n\nif(msg.name===\"fan\"){\n    if(msg.value===\"on\")\n    return ['fan on',];\n    return ['fan off',];\n}\n\nif(msg.name===\"motor\"){\n  \n    if(msg.value===\"on\")\n    return ['motor on',];\n    return ['motor off',];\n}\n\nif(msg.name===\"lamp\"){\n    if(msg.value===\"on\")\n    return ['lamp on',];\n    return ['lamp off',];\n    \n}\n\nif(msg.name===\"pump\"){\n    if(msg.value===\"on\")\n    return ['pump on',];\n    return ['pump off',];\n    \n}\n\nreturn \"false\";"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 995,
+          "layoutY": 141
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "attribute fan off",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "var mType = 'POST_ATTRIBUTES_REQUEST';\nvar msgPayload = {\"fan\":\"off\"};\nmetadata.deviceName = \"dht11 sensor\";\nreturn {msg: msgPayload, metadata: metadata, msgType: mType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 995,
+          "layoutY": 285
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "attribute pump off",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "var mType = 'POST_ATTRIBUTES_REQUEST';\nvar msgPayload = {\"pump\":\"off\"};\nmetadata.deviceName = \"moisture sensor\";\nreturn {msg: msgPayload, metadata: metadata, msgType: mType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 985,
+          "layoutY": 397
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "attribute lamp on",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "var mType = 'POST_ATTRIBUTES_REQUEST';\nvar msgPayload = {\"lamp\":\"on\"};\nmetadata.deviceName = \"light sensor\";\nreturn {msg: msgPayload, metadata: metadata, msgType: mType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 986,
+          "layoutY": 469
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "attribute lamp off",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "var mType = 'POST_ATTRIBUTES_REQUEST';\nvar msgPayload = {\"lamp\":\"off\"};\nmetadata.deviceName = \"light sensor\";\nreturn {msg: msgPayload, metadata: metadata, msgType: mType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 986,
+          "layoutY": 541
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "attribute motor on",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "var mType = 'POST_ATTRIBUTES_REQUEST';\nvar msgPayload = {\"motor\":\"on\"};\nmetadata.deviceName = \"water sensor\";\nreturn {msg: msgPayload, metadata: metadata, msgType: mType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 985,
+          "layoutY": 616
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "attribute motor off",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "var mType = 'POST_ATTRIBUTES_REQUEST';\nvar msgPayload = {\"motor\":\"off\"};\nmetadata.deviceName = \"water sensor\";\nreturn {msg: msgPayload, metadata: metadata, msgType: mType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 992,
+          "layoutY": 209
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "attribute pump on",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "var mType = 'POST_ATTRIBUTES_REQUEST';\nvar msgPayload = {\"pump\":\"on\"};\nmetadata.deviceName = \"moisture sensor\";\nreturn {msg: msgPayload, metadata: metadata, msgType: mType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1333,
+          "layoutY": 323
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbChangeOriginatorNode",
+        "name": "change",
+        "debugMode": false,
+        "configuration": {
+          "originatorSource": "RELATED",
+          "relationsQuery": {
+            "fetchLastLevelOnly": false,
+            "direction": "TO",
+            "maxLevel": 1,
+            "filters": [
+              {
+                "relationType": "Contains",
+                "entityTypes": [
+                  "ASSET"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1606,
+          "layoutY": 325
+        },
+        "type": "org.thingsboard.rule.engine.telemetry.TbMsgAttributesNode",
+        "name": "device attribute",
+        "debugMode": false,
+        "configuration": {
+          "scope": "SERVER_SCOPE",
+          "notifyDevice": false
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 993,
+          "layoutY": 63
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "attribute fan on",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "var mType = 'POST_ATTRIBUTES_REQUEST';\nvar msgPayload = {\"fan\":\"on\"};\nmetadata.deviceName = \"dht11 sensor\";\nreturn {msg: msgPayload, metadata: metadata, msgType: mType};"
+        }
+      }
+    ],
+    "connections": [
+      {
+        "fromIndex": 0,
+        "toIndex": 1,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 1,
+        "toIndex": 11,
+        "type": "fan on"
+      },
+      {
+        "fromIndex": 1,
+        "toIndex": 2,
+        "type": "fan off"
+      },
+      {
+        "fromIndex": 1,
+        "toIndex": 8,
+        "type": "pump on"
+      },
+      {
+        "fromIndex": 1,
+        "toIndex": 3,
+        "type": "pump off"
+      },
+      {
+        "fromIndex": 1,
+        "toIndex": 4,
+        "type": "lamp on"
+      },
+      {
+        "fromIndex": 1,
+        "toIndex": 5,
+        "type": "lamp off"
+      },
+      {
+        "fromIndex": 1,
+        "toIndex": 6,
+        "type": "motor on"
+      },
+      {
+        "fromIndex": 1,
+        "toIndex": 7,
+        "type": "motor off"
+      },
+      {
+        "fromIndex": 2,
+        "toIndex": 9,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 3,
+        "toIndex": 9,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 4,
+        "toIndex": 9,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 5,
+        "toIndex": 9,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 6,
+        "toIndex": 9,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 7,
+        "toIndex": 9,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 8,
+        "toIndex": 9,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 9,
+        "toIndex": 10,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 11,
+        "toIndex": 9,
+        "type": "Success"
+      }
+    ],
+    "ruleChainConnections": null
+  }
+}
