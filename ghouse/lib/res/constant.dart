@@ -1,10 +1,10 @@
 const uri = 'ws://192.168.43.252:8080/api/ws/plugins/telemetry?token=';
 
 ///[the base url of the app ]
-const host = '192.168.43.69'; //note 9
+// const host = '192.168.43.69'; //note 9
 // const host = '192.168.43.252'; //note 5 wifi
 // const host = '192.168.43.69'; //yasser phone wifi
-// const host = '192.168.43.243'; //yasser phone and lap
+const host = '192.168.43.243'; //yasser phone and lap
 // const host = '127.0.0.1'; //chrome debuging
 // const host = '192.168.154.77'; //ms phone wifi
 
@@ -79,43 +79,43 @@ Map stopLamp = {"method": "stopLamp", "params": {}, "timeout": 20000};
 Map startMotor = {"method": "startMotor", "params": {}, "timeout": 20000};
 Map stopMotor = {"method": "stopMotor", "params": {}, "timeout": 20000};
 
-///ASSET ID
-///my laptop
-const assetId = 'b89c12f0-20ad-11ec-9161-932316a31a3e';
-//my laptop
-const fan = {
-  "ID": '484b9420-264e-11ec-a257-5564d1017c12',
-  "token": 'EMacgNpnAQQR0aEgOiXQ'
-};
-const dhtSensor = {
-  "ID": '205d9f80-b187-11eb-8337-d185831eb35d',
-  "token": 'hhf9x5hWi5yDnGMAyCTx'
-};
-const moisSensor = {
-  "ID": '727da3f0-b187-11eb-8337-d185831eb35d',
-  "token": '0pPmsEwx0yq9DLFkr8Es'
-};
-const waterSensor = {
-  "ID": 'f4025660-b186-11eb-8337-d185831eb35d',
-  "token": 'VvRYDgvzHshO72vcpp19'
-};
-const lightSensor = {
-  "ID": '0a39bef0-b187-11eb-8337-d185831eb35d',
-  "token": 'zwpp5zbg0Ye7JO6yjX9K'
-};
+// ///ASSET ID
+// ///my laptop
+// const assetId = 'b89c12f0-20ad-11ec-9161-932316a31a3e';
+// //my laptop
+// const fan = {
+//   "ID": '484b9420-264e-11ec-a257-5564d1017c12',
+//   "token": 'EMacgNpnAQQR0aEgOiXQ'
+// };
+// const dhtSensor = {
+//   "ID": '205d9f80-b187-11eb-8337-d185831eb35d',
+//   "token": 'hhf9x5hWi5yDnGMAyCTx'
+// };
+// const moisSensor = {
+//   "ID": '727da3f0-b187-11eb-8337-d185831eb35d',
+//   "token": '0pPmsEwx0yq9DLFkr8Es'
+// };
+// const waterSensor = {
+//   "ID": 'f4025660-b186-11eb-8337-d185831eb35d',
+//   "token": 'VvRYDgvzHshO72vcpp19'
+// };
+// const lightSensor = {
+//   "ID": '0a39bef0-b187-11eb-8337-d185831eb35d',
+//   "token": 'zwpp5zbg0Ye7JO6yjX9K'
+// };
 
-const pump = {
-  "ID": '143342f0-266c-11ec-a257-5564d1017c12',
-  "token": '0WiWPDvqX8xgwSXhQteo'
-};
-const lamp = {
-  "ID": '0ef3e0b0-266c-11ec-a257-5564d1017c12',
-  "token": 'L1VGfoNMmjdJshBRIohN'
-};
-const motor = {
-  "ID": '059d4880-266c-11ec-a257-5564d1017c12',
-  "token": 'bDatZ4NU9noh83vtCMnX'
-};
+// const pump = {
+//   "ID": '143342f0-266c-11ec-a257-5564d1017c12',
+//   "token": '0WiWPDvqX8xgwSXhQteo'
+// };
+// const lamp = {
+//   "ID": '0ef3e0b0-266c-11ec-a257-5564d1017c12',
+//   "token": 'L1VGfoNMmjdJshBRIohN'
+// };
+// const motor = {
+//   "ID": '059d4880-266c-11ec-a257-5564d1017c12',
+//   "token": 'bDatZ4NU9noh83vtCMnX'
+// };
 
 dynamic profileInfo = [
   {
@@ -177,39 +177,39 @@ dynamic profileInfo = [
 ];
 
 //yasser
-// const fan = {
-//   "ID": 'daad2440-6e4d-11ec-b602-6b11b9ab0d75',
-//   "token": 'EMacgNpnAQQR0aEgOiXQ'
-// };
-// const dhtSensor = {
-//   "ID": 'f1ace5e0-6e4d-11ec-b602-6b11b9ab0d75',
-//   "token": 'hhf9x5hWi5yDnGMAyCTx'
-// };
-// const moisSensor = {
-//   "ID": 'e8168590-6e4d-11ec-b602-6b11b9ab0d75',
-//   "token": '0pPmsEwx0yq9DLFkr8Es'
-// };
-// const waterSensor = {
-//   "ID": '0088ea00-6e4e-11ec-b602-6b11b9ab0d75',
-//   "token": 'VvRYDgvzHshO72vcpp19'
-// };
-// const lightSensor = {
-//   "ID": 'f93e4e70-6e4d-11ec-b602-6b11b9ab0d75',
-//   "token": 'zwpp5zbg0Ye7JO6yjX9K'
-// };
+const fan = {
+  "ID": 'daad2440-6e4d-11ec-b602-6b11b9ab0d75',
+  "token": 'EMacgNpnAQQR0aEgOiXQ'
+};
+const dhtSensor = {
+  "ID": 'f1ace5e0-6e4d-11ec-b602-6b11b9ab0d75',
+  "token": 'hhf9x5hWi5yDnGMAyCTx'
+};
+const moisSensor = {
+  "ID": 'e8168590-6e4d-11ec-b602-6b11b9ab0d75',
+  "token": '0pPmsEwx0yq9DLFkr8Es'
+};
+const waterSensor = {
+  "ID": '0088ea00-6e4e-11ec-b602-6b11b9ab0d75',
+  "token": 'VvRYDgvzHshO72vcpp19'
+};
+const lightSensor = {
+  "ID": 'f93e4e70-6e4d-11ec-b602-6b11b9ab0d75',
+  "token": 'zwpp5zbg0Ye7JO6yjX9K'
+};
 
-// const pump = {
-//   "ID": 'b16e83e0-927d-11ec-96b1-d9c31cc0d69c',
-//   "token": '0WiWPDvqX8xgwSXhQteo'
-// };
-// const lamp = {
-//   "ID": 'c9677320-6e4d-11ec-b602-6b11b9ab0d75',
-//   "token": 'L1VGfoNMmjdJshBRIohN'
-// };
-// const motor = {
-//   "ID": 'd133e8e0-6e4d-11ec-b602-6b11b9ab0d75',
-//   "token": 'bDatZ4NU9noh83vtCMnX'
-// };
+const pump = {
+  "ID": 'b16e83e0-927d-11ec-96b1-d9c31cc0d69c',
+  "token": '0WiWPDvqX8xgwSXhQteo'
+};
+const lamp = {
+  "ID": 'c9677320-6e4d-11ec-b602-6b11b9ab0d75',
+  "token": 'L1VGfoNMmjdJshBRIohN'
+};
+const motor = {
+  "ID": 'd133e8e0-6e4d-11ec-b602-6b11b9ab0d75',
+  "token": 'bDatZ4NU9noh83vtCMnX'
+};
 
-/// yasser lap
-//const assetId = 'e1123740-6e4c-11ec-b602-6b11b9ab0d75';
+// yasser lap
+const assetId = 'e1123740-6e4c-11ec-b602-6b11b9ab0d75';

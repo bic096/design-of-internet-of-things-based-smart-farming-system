@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:get/get.dart';
+import 'package:ghouse/res/widgets/requests/failier_widget.dart';
 import 'package:ghouse/src/models/modes.dart';
 import 'package:ghouse/src/services/thingsboard_service.dart' as tbService;
 // import 'package:ghouse/src/services/websocket_handler.dart';
@@ -92,7 +93,10 @@ class GetControlScreen extends GetxController {
           print(
               'Save Attribue Exception: \n Exception While Changing The Mode');
           progress.dismiss();
+          showDialog(context: context, builder: (context) => FailierWidget());
         } catch (e) {
+          progress.dismiss();
+          showDialog(context: context, builder: (context) => FailierWidget());
           print(e);
         }
       } else {
@@ -112,10 +116,13 @@ class GetControlScreen extends GetxController {
           progress.dismiss();
         } on ThingsboardError {
           progress.dismiss();
+          showDialog(context: context, builder: (context) => FailierWidget());
           mode('manual');
           print(
               'Save Attribue Exception: \n Exception While Changing The Mode');
         } catch (e) {
+          progress.dismiss();
+          showDialog(context: context, builder: (context) => FailierWidget());
           print(e);
         }
       }
@@ -187,10 +194,12 @@ class GetControlScreen extends GetxController {
       progress.dismiss();
     } on ThingsboardError {
       progress.dismiss();
+      showDialog(context: context, builder: (context) => FailierWidget());
       print(rpcRequstStatus.value.toString() +
           'Thingsboard Exception: \nRPC Command Exception: \n Exception While Running an RPC command.');
     } catch (e) {
       progress.dismiss();
+      showDialog(context: context, builder: (context) => FailierWidget());
       print(e);
     }
   }

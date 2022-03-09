@@ -16,7 +16,7 @@ class MonitoringScreen extends StatelessWidget {
         child: SafeArea(
             child: Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('Monitor Mode')),
+        title: Center(child: Text('Monitor')),
       ),
       body: Container(
           child: GridView.count(
@@ -24,7 +24,7 @@ class MonitoringScreen extends StatelessWidget {
         crossAxisSpacing: 15.0,
         mainAxisSpacing: 20.0,
         padding: EdgeInsets.only(left: 15, right: 15, top: 30, bottom: 30),
-        childAspectRatio: 1.7,
+        childAspectRatio: 1.5,
         children: [
           Obx(() => MonitoringWidget(
                 statu: getMonitoringScreen.statu(Devices.TEMPERATURE_SENSOR,

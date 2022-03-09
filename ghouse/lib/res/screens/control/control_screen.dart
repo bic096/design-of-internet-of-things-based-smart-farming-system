@@ -43,7 +43,7 @@ class ControlScreen extends StatelessWidget {
                         },
                       ))
                 ],
-                title: (Text('Control Mode')),
+                title: (Text('Control')),
               ),
               body: SingleChildScrollView(
                 child: Container(
